@@ -30,7 +30,7 @@ typedef struct Elf64_Ehdr {
   Elf64_Half e_shstrndx;
 } Elf64_Ehdr;
 
-/*** e_type ***/
+/*** Type ***/
 enum { ET_NONE,
        ET_REL,
        ET_EXEC,
@@ -41,19 +41,20 @@ enum { ET_NONE,
        ET_LOPROC = 0xFF00,
        ET_HIPROC = 0xFFFF };
 
-/*** e_machine ***/
-enum { EM_NONE,
-       EM_M32,
-       EM_SPARC,
-       EM_386,
-       EM_68K,
-       EM_88K,
-       EM_860,
-       EM_MIPS
-};
-
 /*** e_version ***/
 enum { EV_NONE, EV_CURRENT };
+
+/*** Object File Classes ***/
+enum { ELFCLASS32 = 1, ELFCLASS64 };
+
+/*** Data Encodings ***/
+enum { ELFDATA2LSB = 1, ELFDATA2MSB };
+
+/*** ABI Identifier ***/
+enum { ELFOSABI_SYSV,
+       ELFOSABI_HPUX,
+       ELFOSABI_STANDALONE = 255
+};
 
 typedef struct Elf64_Efile {
   Elf64_Ehdr* header;
