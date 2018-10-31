@@ -55,6 +55,13 @@ void Elf64_print_header(Elf64_Ehdr* h) {
 }
 
 void Elf64_print_file(Elf64_Efile* e) {
+  if(e->header->e_ident[0] != 127 ||
+     e->header->e_ident[1] != 'E' ||
+     e->header->e_ident[2] != 'L' ||
+     e->header->e_ident[3] != 'F') {
+    printf("This is not an ELF file\n");
+    return;
+  }
   printf("Elf64 file:\n\n");
   Elf64_print_header(e->header);
 }
