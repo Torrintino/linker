@@ -103,7 +103,7 @@ const char* oft_dict(int id) {
 }
 
 void Elf64_print_header(Elf64_Ehdr* h) {
-  printf("Header:\n");
+  printf("------------------ Header ------------------\n\n");
   printf("File class: %d (%s)\n", h->e_ident[4],
 	 ofc_dict(h->e_ident[4]));
   printf("Data encoding: %d (%s)\n", h->e_ident[5],
@@ -117,8 +117,8 @@ void Elf64_print_header(Elf64_Ehdr* h) {
   printf("Target architecture: %" PRIu16 "\n", h->e_machine);
   printf("Version: %" PRIu32 "\n", h->e_version);
   printf("Program entry point: %#016" PRIx64 "\n", h->e_entry);
-  printf("Program header table offset: %" PRIu64 "\n", h->e_phoff);
-  printf("Section header table offset: %" PRIu64 "\n", h->e_shoff);
+  printf("Program header table offset: %#016" PRIx64 "\n", h->e_phoff);
+  printf("Section header table offset: %#016" PRIx64 "\n", h->e_shoff);
   printf("Flags: 0x%08" PRIx32 "\n", h->e_flags);
   printf("ELF header size: %" PRIu16 "\n", h->e_ehsize);
   printf("Program header size: %" PRIu16 "\n", h->e_phentsize);
@@ -129,7 +129,7 @@ void Elf64_print_header(Elf64_Ehdr* h) {
 }
 
 void Elf64_print_file(Elf64_Efile* e) {
-  printf("Elf64 file:\n\n");
+  printf("---------------- Elf64 file ----------------\n\n");
   Elf64_print_header(e->header);
 }
 
