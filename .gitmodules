@@ -1,0 +1,3 @@
+[submodule "test/fw"]
+	path = test/fw
+	url = git@github.com:Torrintino/test.git
