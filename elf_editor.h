@@ -8,8 +8,10 @@ typedef struct {
   Elf64_Phdr* phdr;
   Elf64_Shdr* shdr;
   void** section;
+  void** segment;
 } Elf64_Efile;
 
+Elf64_Efile* Elf64_create_file();
 Elf64_Efile* Elf64_read_file(const char* path);
 void Elf64_print_file(Elf64_Efile* e);
 int Elf64_write_file(const char* path, Elf64_Efile* e);
